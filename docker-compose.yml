@@ -1,11 +1,16 @@
 version: "3.9"
 
 services:
-  app:
-    container_name: "app"
-    ports:
-      - 5555:5555
-    build: ./python/
+  flask:
+    container_name: flask
+    build: ./flask/
     volumes:
-      - ./python:/usr/scr/app
-    command: flask run --host=0.0.0.0 --port=5555
+      - ./flask/:/app
+
+  nginx:
+    container_name: nginx
+    build: ./nginx/
+    ports:
+      - 5555:80
+    depends_on:
+      - flask
