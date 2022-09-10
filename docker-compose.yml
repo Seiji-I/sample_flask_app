@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: "app"
+    ports:
+      - 5555:5555
+    build: ./python/
+    volumes:
+      - ./python:/usr/scr/app
+    command: flask run --host=0.0.0.0 --port=5555

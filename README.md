@@ -1,1 +1,2 @@
 # sample_flask_app
+入院中暇なので何か作る
